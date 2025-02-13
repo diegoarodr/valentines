@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #scene1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #ffe4e1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #enterButton {
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      z-index: 2;
+    }
+
+    #enterButton:hover {
+      background-color: #c0392b;
+    }
+
+    #heartContainer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      object-fit: fill;
+      overflow: hidden;
+    }
+
+  .heart {
+      position: absolute;
+      width: 50px;
+      height: 30px;
+      background-image: url("heart.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: float 7s linear infinite;
+      opacity: 0;
+      filter: hue-rotate(50deg) saturate(1.9) brightness(1.2);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+        transform: translateY(70vh) scale(1.2);
+      }
+      50% {
+        transform: translateY(40vh) scale(1);
+      }
+      75% {
+        transform: translateY(10vh) scale(0.8);
+      }
+      100% {
+        transform: translateY(-20vh) scale(0);
+        opacity: 0;
+      }
+    }
+
+    #scene2 {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: none;
+    }
+
+    #backgroundVideo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #yesButton {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: #f2c6d9;
+      border: 2px solid #e996ac;
+      color: #e996ac;
+      padding: 75px 150px;
+      font-size: 120px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+      z-index: 3;
+    }
+
+    #menu {
+      position: absolute;
+      top: 50%;
+      left: 20%; /* Adjust left position */
+      transform: translate(0, -50%); /* Vertically center */
+      width: 300px;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      z-index: 3;
+      display: none;
+    }
+
+    #menu ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    #menu li {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    #banner {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white; /* White fill */
+      color: #e996ac; /* Red text color */
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-align: center;
+      z-index: 3;
+      display: none; /* Initially hidden */
+      clip-path: polygon(
+        50% 0%,
+        100% 10%,
+        100% 90%,
+        50% 100%,
+        0% 90%,
+        0% 10%,
+        50% 0%
+      ); /* Heart-shaped corners */
+    }
+
+    #banner h2 {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      font-size: 36px;
+      margin-bottom: 5px;
+    }
+
+    #banner p {
+      font-family: 'Lexend', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <div id="scene1">
+    <button id="enterButton">Enter</button>
+    <div id="heartContainer"></div>
+  </div>
+
+  <div id="scene2">
+    <video id="backgroundVideo" muted>
+      <source src="valentines.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <button id="yesButton" style="display: none;">Yes</button>
+    <div id="menu">
+      <ul>
+        <title>date for valntines:</title>
+        <li>Bunny Park Picnic</li>
+        <li>Round 1</li>
+        <li>Some of Our Favorites</li>
+      </ul>
+    </div>
+    <div id="banner">
+      <h2>Thank you mama</h2>
+      <p>Happy Valentine's!</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
